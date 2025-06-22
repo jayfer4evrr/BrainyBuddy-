@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brainy Buddy - AI Study Helper</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #e8efff;
+      padding: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #4a90e2;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    #chatbot-box {
+      border: 1px solid #ccc;
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+    #chatbot-input {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #aaa;
+    }
+    #send-btn {
+      padding: 10px 15px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #4a90e2;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Brainy Buddy 🤖</h1>
+    <p>Your Personal AI Study Assistant</p>
+  </header>  <nav>
+    <a href="#study">Study Help</a>
+    <a href="#timetable">Timetable</a>
+    <a href="#quiz">Test</a>
+    <a href="#motivation">Motivation</a>
+    <a href="#chatbot">Chatbot</a>
+  </nav>  <section id="study" class="card">
+    <h2>📚 Study Help</h2>
+    <p>Find notes, quick summaries, and study tips for your subjects. Need help with a topic? Just ask the chatbot!</p>
+  </section>  <section id="timetable" class="card">
+    <h2>🗓️ Timetable Manager</h2>
+    <p>Create your weekly plan and stick to your goals. Tip: Use time blocks to stay focused!</p>
+  </section>  <section id="quiz" class="card">
+    <h2>🧪 Quick Quiz</h2>
+    <p>Q: What is the capital of France?</p>
+    <button onclick="alert('Correct! ✅')">Paris</button>
+    <button onclick="alert('Oops! ❌')">London</button>
+  </section>  <section id="motivation" class="card">
+    <h2>🌟 Daily Motivation</h2>
+    <p>“Push yourself, because no one else is going to do it for you.” 💪</p>
+  </section>  <section id="chatbot" class="card">
+    <h2>💬 AI Chatbot</h2>
+    <div id="chatbot-box"></div>
+    <input type="text" id="chatbot-input" placeholder="Ask me anything...">
+    <button id="send-btn">Send</button>
+  </section>  <footer>
+    <p>Made with 💙 by Aadya | Class Project</p>
+  </footer>  <script>
+    const chatbotBox = document.getElementById("chatbot-box");
+    const input = document.getElementById("chatbot-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    const responses = {
+      "hello": "Hi there! How can I help you study today?",
+      "photosynthesis": "Photosynthesis is how plants make food using sunlight.",
+      "motivation": "You’re doing great. Keep going! 🚀",
+      "exam tips": "Revise daily, stay hydrated, and don’t forget to rest. 🧠",
+      "bye": "Good luck! Come back anytime you need help. 👋"
+    };
+
+    sendBtn.onclick = () => {
+      const userInput = input.value.toLowerCase();
+      const reply = responses[userInput] || "Sorry, I don't know that yet. Try another question!";
+
+      chatbotBox.innerHTML += `<p><strong>You:</strong> ${input.value}</p>`;
+      chatbotBox.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
+      chatbotBox.scrollTop = chatbotBox.scrollHeight;
+      input.value = "";
+    };
+  </script></body>
+</p
